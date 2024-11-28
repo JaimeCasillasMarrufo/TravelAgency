@@ -29,6 +29,7 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
+# Ignorar solo las carpetas "build", pero no el contenido de Android
 /build/
 
 # Symbolication related
@@ -41,3 +42,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Aseguramos que no se ignore AndroidManifest.xml
+!android/app/src/main/AndroidManifest.xml
