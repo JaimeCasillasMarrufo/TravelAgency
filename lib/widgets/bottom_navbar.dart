@@ -25,7 +25,7 @@ class BottomNavbar extends StatelessWidget {
               break;
           }
         },
-        color: Colors.black,
+        color: Theme.of(context).colorScheme.secondary,
         items: const [
           Icon(
             Icons.menu,
@@ -35,7 +35,7 @@ class BottomNavbar extends StatelessWidget {
             Icons.map_outlined,
             color: Colors.white,
           ),
-           Icon(
+          Icon(
             Icons.login,
             color: Colors.white,
           ),

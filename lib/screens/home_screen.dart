@@ -14,9 +14,9 @@ class HomeScreen extends StatelessWidget {
       body: IndexedStack(index: viewIndex, children: const [
         HomeView(),
         MapView(),
-      
       ]),
       bottomNavigationBar: BottomNavbar(index: viewIndex,),
+      backgroundColor: Theme.of(context).colorScheme.secondary,
     );
   }
 }

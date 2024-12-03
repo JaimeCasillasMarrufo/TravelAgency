@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:travel_agency/home_screen.dart';
+import 'package:travel_agency/screens/home_screen.dart';
 
 final appRouter = GoRouter(initialLocation: "/home/0", routes: [
   GoRoute(

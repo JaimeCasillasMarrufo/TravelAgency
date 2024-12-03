@@ -25,39 +25,37 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     final placeProvider = Provider.of<PlaceProvider>(context);
-    return Scaffold(
-      backgroundColor:
-          Color.fromRGBO(30, 30, 30, 100), // Cambia el color de fondo aquí
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const Text(
-                "Place Map",
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900, color: Colors.white),
-              ),
-              Divider(color: Colors.white),
-              const SizedBox(height: 20),
-              Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: []),
-              const SizedBox(height: 20),
-              Expanded(
-                  child: ListView.builder(
-                      itemCount: placeProvider.places.length,
-                      itemBuilder: (context, index) {
-                        final place = placeProvider.places[index];
-                        return Card(
-                          child: ListTile(
-                            title: Text(place.title),
-                            subtitle: Text(place.description),
-                          ),
-                        );
-                      }))
-            ],
-          ),
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const Text(
+              "Place Map",
+              style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.white),
+            ),
+            Divider(color: Colors.white),
+            const SizedBox(height: 20),
+            Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: []),
+            const SizedBox(height: 20),
+            Expanded(
+                child: ListView.builder(
+                    itemCount: placeProvider.places.length,
+                    itemBuilder: (context, index) {
+                      final place = placeProvider.places[index];
+                      return Card(
+                        child: ListTile(
+                          title: Text(place.title),
+                          subtitle: Text(place.description),
+                        ),
+                      );
+                    }))
+          ],
         ),
       ),
     );
