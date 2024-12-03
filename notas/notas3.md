@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:travel_agency/domain/entities/place.dart';
 import 'package:travel_agency/domain/providers/place_provider.dart';
-import 'package:travel_agency/widgets/bottom_navbar.dart';
 import 'package:provider/provider.dart';
 
 class MapView extends StatefulWidget {
@@ -97,8 +96,8 @@ class _MapViewState extends State<MapView> {
   }
 
   Future _addMarker(LatLng position, String title, String description) async {
-    final placeProvider = Provider.of<PlaceProvider>(context, listen: false);
-    final newPlace = Place(
+    final incidentProvider = Provider.of<PlaceProvider>(context, listen: false);
+    final newIncident = Place(
         id: '',
         title: title,
         description: description,
@@ -107,7 +106,7 @@ class _MapViewState extends State<MapView> {
         isEmailSent: false);
 
     try {
-      await placeProvider.addPlace(newPlace);
+      await incidentProvider.addPlace(newIncident);
       setState(() {
         _markers.add(Marker(
           markerId: MarkerId(position.toString()),
@@ -119,7 +118,7 @@ class _MapViewState extends State<MapView> {
       print(e);
     }
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return GoogleMap(

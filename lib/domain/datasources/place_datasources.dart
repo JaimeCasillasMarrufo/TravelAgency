@@ -7,7 +7,7 @@ class PlaceDatasources {
     try {
       var dio = Dio();
       dio.options.baseUrl = "https://api-incident.juanfrausto.com/api/";
-      final response = await dio.get("/places");
+      final response = await dio.get("/incidents");
       final data = response.data as List;
       final place = Place.fromJson(data[0]);
       return data.map((item) => Place.fromJson(item)).toList();
@@ -21,7 +21,7 @@ class PlaceDatasources {
     try {
       var dio = Dio();
       dio.options.baseUrl = "https://api-incident.juanfrausto.com/api/";
-      final response = await dio.post("/places", data: {
+      final response = await dio.post("/incidents", data: {
         "title": place.title,
         "description": place.description,
         "lat": place.lat,
