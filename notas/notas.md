@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:travel_agency/screens/home/view/home_view.dart';
+import 'package:travel_agency/screens/home/view/map_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -9,12 +11,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late GoogleMapController _mapController;
+  // late GoogleMapController _mapController;
 
-  final LatLng _initialPosition = const LatLng(20.5937, -100.3899); // Coordenadas iniciales
+  // final LatLng _initialPosition = const LatLng(20.5937, -100.3899); // Coordenadas iniciales
 
   int _currentIndex = 1; // El mapa está en el índice 1
-
+  
   
   void _onItemTapped(int index) {
     setState(() {
@@ -24,24 +26,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _pages = [
-      const Center(child: Text('Menu Page', style: TextStyle(fontSize: 24))), 
-      Scaffold( 
-        body: GoogleMap(
-          onMapCreated: (controller) {
-            _mapController = controller;
-          },
-          initialCameraPosition: CameraPosition(
-            target: _initialPosition,
-            zoom: 12.0,
-          ),
-        ),
-      ),
+    final List<Widget> pages = [
+      const HomeView(),
+      const MapView(),
       const Center(child: Text('Logout Page', style: TextStyle(fontSize: 24))), 
     ];
 
     return Scaffold(
-      body: _pages[_currentIndex], 
+      body: pages[_currentIndex], 
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _onItemTapped,
